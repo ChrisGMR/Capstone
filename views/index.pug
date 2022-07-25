@@ -1,0 +1,65 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(http-equiv="X-UA-Compatible", content="IE=edge")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous")
+        link(rel="stylesheet", href="color.css")
+        script(type="text/javascript" src="clicked.js")
+        title HomePage
+    body 
+
+    nav(class="navbar navbar-expand-lg navbar-color")
+        div(class="container-fluid")
+            a(href="/homepage")
+                img(class="navbar-brand" href="/homepage" src="/Pypiro-logos.jpeg" style="max-width: 50px")
+            form(action="/homepage", method ='POST' class="d-flex")     
+                label(for="gametitle")
+                input(name = "gametitle" placeholder= "Find Game" class="form-control me-2")
+                button(type = "Submit" class="btn btn-outline-info") Search
+
+                    //- DropDown
+            div(class="dropdown") 
+                button(class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false") DropDown
+                ul(class="dropdown-menu")
+                    li
+                        a(class="dropdown-item" href="#") Profile 
+                    
+
+            div.logout 
+                a(href="//localhost:3000/logout")
+                    button(class="btn btn-outline-info") Log Out 
+        //-banner
+    main(role="main" class="container")
+        div(class="d-flex align-items-center p-3 my-3 text-white-50 navbar-color rounded box-shadow" )
+            img(src="/Pypiro-logos.jpeg", alt="", srcset="" class="mr-3" style="max-width: 12%")
+            div(class="lh-100 space-right")
+                h6(class="mb-0 text-white lh-150") Welcome Back 
+            div(class="lh-100 text-center space-right")
+                h1(class="h6 mb-0 text-white lh1" id="0101")=`${currentAmount}`
+                small Collection
+            div(class="lh-100 text-center space-right")
+                h1(class="h6 mb-0 text-white lh1")=`${diff}`
+                small Missing
+            div(class="lh-100 text-center space-right")
+                h1(class="h6 mb-0 text-white lh1") 10035
+                small Total Games
+                //-card container
+        h6(class="boder-bottom border-gray pd-2 mb-0") In Your collection  
+        div(class="my-3 p-3 bg-white rounded box-shadow container-cards" style="max-height: 250px")
+            each gameInfo in game
+                div(class="card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-height:200px; max-width: 450px")
+                        div(class="row g-0")
+                            div(class="col-md-4 center")
+                                img(src=`${gameInfo.gameImage}`, alt="", srcset="", class="img-fluid rounded-start" style="height: 108px")
+                            div(class="col-md-5 center")
+                                div(class="card-body center-middle")
+                                    p(class="card-title")=`${gameInfo.gameName}`
+                                    button(type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover") Button 
+                                    //- p(class="text-muted", style="font-size: 10px;")=`${gameInfo.gameSummary}`
+                                    
+                            div(class="btn-group-sm col-md-3 w-10 center")
+                                        button(class="btn btn-outline-primary" onClick=`removeGame(${gameInfo.gameId})`) Remove                                
+    script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous")
+    

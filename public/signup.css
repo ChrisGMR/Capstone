@@ -1,0 +1,60 @@
+/* html{
+    background-image: url(psonelogo.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+    background-color: rgb(5, 0, 11);
+} */
+
+.container-landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 500px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.btn-space {
+    margin-bottom: 10px;
+}
+.btn-landing{
+    max-width: 350px;
+}
+.line-space{
+    margin-top: 15px;
+}
+.container-signing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 450px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.container-signingUp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 450px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
