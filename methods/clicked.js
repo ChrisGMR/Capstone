@@ -7,5 +7,3 @@ function removeGame(game){
     fetch('/homepage/removeGame', {method: "DELETE",headers: { "Content-Type": "application/json" },body: gameid })
     
 }
-
-

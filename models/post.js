@@ -23,6 +23,10 @@ const PostSchema = new mongoose.Schema({
     },
     gamePLatform:{
         type:Array, 
+    }, 
+    hasGame:{
+        type:Boolean,
+        deafault: false
     }
     
 },

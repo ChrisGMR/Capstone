@@ -9,10 +9,10 @@ const app = express()
 app.set('view engine', 'pug')
 app.set('views', './views')
 
-//Homepage and Display from user DB
+
 app.get("/", async (req, res) => {
     username = req.cookies.username
-    //get users game DB
+
     if(req.cookies.username){
         const gameInfo = await Post.find({userId: username}).sort({gameName: 1})
         const gameCount = await countGames()
@@ -30,15 +30,16 @@ app.post('/', async (req,res) => {
         name: req.body.gametitle
     }
     const gameDetails = await getGame(game.name)
+    const hasGames = await userContainsGame(gameDetails)
+   
     const gameCount = await countGames()
     const gameMissing = await diffGames()
-
+    
     res.render('Info', {games: gameDetails, currentAmount: gameCount, diff: gameMissing})
     usercoookieID = req.cookies.username
 })
 
-//gets token from Outh2API
-//token last two months
+
 let token
 async function getToken(){
     
@@ -53,7 +54,7 @@ async function getToken(){
 }
 
 getToken()
-//Finding games
+
 async function getGame(game){
     return await fetch("https://api.igdb.com/v4/games", {method: 'POST', headers: {'Accept': 'application/json',
     'Content-Type': 'text/plain',
@@ -72,7 +73,7 @@ async function getGame(game){
                 summary: element.summary,
                 dateRelease: element.release_dates,
                 platform: element.platforms,
-                
+                hasGame: false
             }
             return games
                 
@@ -82,7 +83,7 @@ async function getGame(game){
 
     
 }
-//Add from user DB
+
 app.post('/addGame', async (req,res) => {
     gameId = req.body.game
     return await fetch("https://api.igdb.com/v4/games", {method: 'POST', headers: {'Accept': 'application/json',
@@ -109,14 +110,15 @@ app.post('/addGame', async (req,res) => {
             gameId:games.id,
             gameImage: games.image,
             gameSummary: games.summary,
-            gamePLatform: games.platforms
+            gamePLatform: games.platforms,
+            hasGame: true
         })
         const savedGame = await newPost.save()
-        res.status(200).json(savedGame)
-        
+        res.status(200).json(savedGame) 
     })
+    
 })
-//Delete from user DB
+
 app.delete('/removeGame', async (req,res) => {
     gameId = req.body.game
     Post.findOneAndDelete( {userId: req.cookies.username ,gameId: gameId}, function (err, docs) {
@@ -129,7 +131,6 @@ app.delete('/removeGame', async (req,res) => {
     })
               
 })
-//get total of all games 
 
 const totalGames = 10035
 async function countGames(){
@@ -144,8 +145,19 @@ async function diffGames(){
     return diff
 }
 
-async function userContainsGame(){
-    
+async function userContainsGame(a){
+
+    const gameInfo = await Post.find({userId: username}).sort({gameName: 1})
+    const fromUser = []
+    for (let i = 0; i < gameInfo.length; i++) {
+        fromUser.push(gameInfo[i].name)
+        for (let j = 0; j < a.length; j++) {
+            if(a[j].name === gameInfo[i].gameName){
+                a[j].hasGame = gameInfo[i].hasGame
+
+            } 
+        }
+    }
 }
 
 
