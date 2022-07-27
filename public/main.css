@@ -1,0 +1,215 @@
+.container-landing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 500px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+
+.btn-space {
+    margin-bottom: 10px;
+}
+.btn-landing{
+    max-width: 350px;
+}
+.line-space{
+    margin-top: 15px;
+}
+.container-signing{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 450px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.hidden-icon{
+    visibility:collapse;
+    width: 0;
+}
+.container-signingUp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    height: 450px;
+    width: 400px;
+    background-color: transparent;
+    justify-content: center;
+    justify-items: center;
+    margin-top: 15%;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+.cards{
+    
+    border: 5px solid black;
+    margin-bottom: none;
+
+}
+.containers{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+    column-gap: 10px;
+    row-gap: 15px;
+    margin-top: 40px;
+}
+.button{
+    font-size: 20px;
+}
+.navbar-color{
+    background-color:rgb(28, 28, 69)
+}
+.navbar-img{
+    max-width: 50px;
+}
+.container-cards{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr; 
+    column-gap: 10px;
+    row-gap: 15px;
+}
+.space-right{
+    margin-right: 100px;
+}
+
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.center-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.center-button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.space-bottom{
+    margin-bottom: 20px;
+}
+
+@media only screen and (max-width:480px){
+    .container-landing{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        height: 300px;
+        width: 200px;
+        background-color: transparent;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .container-signing{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        height: 300px;
+        width: 200px;
+        background-color: transparent;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .container-signingUp{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 15px;
+        height: 300px;
+        width: 200px;
+        background-color: transparent;
+        justify-content: center;
+        justify-items: center;
+        margin-top: 50%;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    
+    .navbar-img{
+        height:50px;
+        margin: none;
+    }
+
+    .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: flex;
+        flex-wrap: nowrap !important;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .form-control-nav{
+        max-width: 70%;
+        margin-left: 1px;
+    }
+    .search-btn-text{
+        display: none;
+    }
+    .profile-btn-text{
+        display: none;
+    }
+    .logout-btn-text{
+        display: none;
+    }
+    .btn-secondary{
+        visibility: hidden;
+    }
+    .dropdown-toggle{
+        visibility: hidden;
+    }
+    .btn-navbar{
+        width: 35px;
+    }
+    .container-cards{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr; 
+        column-gap: 10px;
+        row-gap: 15px;
+    }
+    .row{
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .row>* {
+        flex-shrink: 0;
+        width: 35%;
+    }
+    .mr-3{
+        visibility: hidden;
+        width: 1px
+    }
+    .space-right{
+        margin-right: 10px;
+    }
+    .hidden-icon{
+        visibility: visible;
+    }
+
+}
